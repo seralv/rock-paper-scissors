@@ -28,25 +28,32 @@ function playRound(humanChoice, computerChoice) {
   }
 }
 
-let humanScore = 0;
-let computerScore = 0;
+function playGame() {
+  let humanScore = 0;
+  let computerScore = 0;
 
-let result = playRound(getHumanChoice(), getComputerChoice());
+  for (let i = 0; i < 5; i++) {
+    let result = playRound(getHumanChoice(), getComputerChoice());
 
-if (result == "Human wins") {
-  humanScore++;
-  console.log(`Human score: ${humanScore}`);
-  console.log(`Computer score: ${computerScore}`);
-  result = playRound(getHumanChoice(), getComputerChoice());
-} else if (result == "Computer wins") {
-  computerScore++;
-  console.log(`Human score: ${humanScore}`);
-  console.log(`Computer score: ${computerScore}`);
-  result = playRound(getHumanChoice(), getComputerChoice());
-} else {
-  if (humanScore > computerScore) {
-    console.log(`¡You win with ${humanScore} points!`);
-  } else {
-    console.log(`¡Computer wins with ${computerScore} points!`);
+    if (result == "Human wins") {
+      humanScore++;
+      console.log(`Human score: ${humanScore}`);
+      console.log(`Computer score: ${computerScore}`);
+    } else if (result == "Computer wins") {
+      computerScore++;
+      console.log(`Human score: ${humanScore}`);
+      console.log(`Computer score: ${computerScore}`);
+    } else {
+      i = 5;
+      if (humanScore == computerScore) {
+        console.log(`¡Nobody win!`);
+      } else if (humanScore < computerScore) {
+        console.log(`¡Computer wins with ${computerScore} points!`);
+      } else {
+        console.log(`¡You win with ${humanScore} points!`);
+      }
+    }
   }
 }
+
+playGame();
