@@ -8,13 +8,17 @@
   </head>
   <body>
     <h1>Rock, paper, scissors</h1>
-    <h3 id="selection"></h3>
+    <h3 id="selection">Choose an option</h3>
     <div class="buttons">
-      <button type="button">Rock</button>
-      <button type="button">Paper</button>
-      <button type="button">Scissors</button>
+      <button type="button" data-choice="rock">Rock</button>
+      <button type="button" data-choice="paper">Paper</button>
+      <button type="button" data-choice="scissors">Scissors</button>
     </div>
     <div class="result"></div>
+    <div id="scoreboard">
+      <p>Human Score: <span id="humanScore">0</span></p>
+      <p>Computer Score: <span id="computerScore">0</span></p>
+    </div>
     <script src="js/javascript.js"></script>
   </body>
 </html>
