@@ -5,25 +5,32 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() {
-  return prompt("Choice rock, scissors or paper: ");
+  const selection = document.querySelector("#selection");
+  const buttons = document.querySelector(".buttons");
+  selection.textContent = "Click one option please";
+  buttons.addEventListener("click", (event) => {
+    // console.log(event.target.textContent.toLowerCase());
+    return event.target.textContent.toLowerCase();
+  });
+  // return prompt("Choice rock, scissors or paper: ");
 }
 
 function playRound(humanChoice, computerChoice) {
-  let newHumanChoice = humanChoice.toLowerCase();
-  console.log(`Your choice is: ${newHumanChoice}`);
+  // let newHumanChoice = humanChoice.toLowerCase();
+  console.log(`Your choice is: ${humanChoice}`);
   console.log(`Computer choice is: ${computerChoice}`);
-  if (newHumanChoice == computerChoice) {
-    console.log(`¡Tied! ${newHumanChoice} is equal to ${computerChoice}`);
+  if (humanChoice == computerChoice) {
+    console.log(`¡Tied! ${humanChoice} is equal to ${computerChoice}`);
     return "Tied";
   } else if (
-    (newHumanChoice == "rock" && computerChoice == "scissors") ||
-    (newHumanChoice == "scissors" && computerChoice == "paper") ||
-    (newHumanChoice == "paper" && computerChoice == "rock")
+    (humanChoice == "rock" && computerChoice == "scissors") ||
+    (humanChoice == "scissors" && computerChoice == "paper") ||
+    (humanChoice == "paper" && computerChoice == "rock")
   ) {
-    console.log(`¡You win! ${newHumanChoice} wins to ${computerChoice}`);
+    console.log(`¡You win! ${humanChoice} wins to ${computerChoice}`);
     return "Human wins";
   } else {
-    console.log(`¡You lost! ${computerChoice} wins to ${newHumanChoice}`);
+    console.log(`¡You lost! ${computerChoice} wins to ${humanChoice}`);
     return "Computer wins";
   }
 }
